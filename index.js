@@ -54,7 +54,7 @@ async function getData(){
 							cell7.innerHTML = data.active;
 							cell8.innerHTML = data.critical;
 							cell9.innerHTML = data.casesPerOneMillion;
-							cell10.innerHTML = data.mortality;									
+							cell10.innerHTML = ((data.deaths/data.cases)*100).toFixed(3);									
 						}
 					})
 					
