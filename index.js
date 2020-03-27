@@ -86,7 +86,7 @@ async function getData(){
 				})
 
 				temp+="<tr id='world'>";
-					temp+="<td>"+"World"+"</td>";
+					temp+="<td>"+"World*"+"</td>";
 					temp+="<td>"+worldCases+"</td>";
 					temp+="<td>"+worldTodayCases+"</td>";
 					temp+="<td>"+worlddeaths+"</td>";
@@ -97,7 +97,7 @@ async function getData(){
 					temp+="<td>"+worldperM+"</td>";
 				//world data ends	
 
-				//country data starts
+				
 			for(let i=0;i<20;i++){
 				countries.push(data[i].country);
 				deaths.push(data[i].deaths);
@@ -142,7 +142,8 @@ async function getData(){
 			let restDeaths = worlddeaths-first8countryDeaths;
 			//adding restDeaths property to details object.
 			details.restDeaths=restDeaths;
-
+				
+				 //country data starts
 				for(let i=0;i<data.length;i++){
 					temp+="<tr>";
 					temp+="<td>"+data[i].country+"</td>";
