@@ -21,7 +21,8 @@ async function getData(){
 			 //Searching an element
 				const searchBar = document.forms["search-country"].querySelector('input');
 
-				searchBar.addEventListener('keyup',(e)=>{
+				searchBar.addEventListener('keypress',(e)=>{
+					if (e.key === 'Enter'){
 					const term = e.target.value.toUpperCase();
 					data.forEach(data=>{
 						if(term==data.country.toUpperCase()){
@@ -57,7 +58,8 @@ async function getData(){
 							cell10.innerHTML = ((data.deaths/data.cases)*100).toFixed(3);									
 						}
 					})
-					
+					e.preventDefault();
+					}					
 				});
 
 			 //Search ends
