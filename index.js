@@ -41,7 +41,8 @@ async function getData(){
 							var cell6 = row.insertCell(5);
 							var cell7 = row.insertCell(6);
 							var cell8 = row.insertCell(7);
-							var cell9 = row.insertCell(8);						
+							var cell9 = row.insertCell(8);
+							var cell10 = row.insertCell(9);						
 
 							// Add some text to the new cells:
 							cell1.innerHTML = data.country;
@@ -53,7 +54,7 @@ async function getData(){
 							cell7.innerHTML = data.active;
 							cell8.innerHTML = data.critical;
 							cell9.innerHTML = data.casesPerOneMillion;
-							 									
+							cell10.innerHTML = data.mortality;									
 						}
 					})
 					
@@ -73,6 +74,7 @@ async function getData(){
 			    let worldActive=0;
 			    let worldCritical=0;
 			    let worldperM=0;
+			    let worldMortality=0;
 
 				data.forEach(data=>{
 				    worlddeaths = worlddeaths+data.deaths;
@@ -84,6 +86,7 @@ async function getData(){
 					worldCritical = worldCritical+data.critical;
 					worldperM = worldperM+data.casesPerOneMillion;
 				})
+				    worldMortality = worldMortality + ((worlddeaths/worldCases)*100).toFixed(3);
 
 				temp+="<tr id='world'>";
 					temp+="<td>"+"World*"+"</td>";
@@ -95,6 +98,7 @@ async function getData(){
 					temp+="<td>"+worldActive+"</td>";
 					temp+="<td>"+worldCritical+"</td>";
 					temp+="<td>"+worldperM+"</td>";
+					temp+="<td>"+worldMortality+"</td>";
 				//world data ends	
 
 				
@@ -155,7 +159,8 @@ async function getData(){
 					temp+="<td>"+data[i].active+"</td>";
 					temp+="<td>"+data[i].critical+"</td>";
 					temp+="<td>"+data[i].casesPerOneMillion+"</td>";
-				}
+					temp+="<td>"+((data[i].deaths/data[i].cases)*100).toFixed(3)+"</td>";
+				}	
 				//counry data ends
 				document.getElementById("data").innerHTML = temp;
 
